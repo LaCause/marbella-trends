@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { HeroHighlight } from "./components/ui/HeroHighlight/HeroHighlight";
 import { FlipWords } from "./components/molecules/FlipWords/FlipWords";
 import { BentoGrid, BentoGridItem } from "./components/ui/BentoGrid/BentoGrid";
 import { X } from "lucide-react";
 import { cn } from "./utils";
+import Image from "next/image";
 
 export default function Home() {
   const words = ["Nightclubs", "Holy Beach", "Yacht Club"];
@@ -13,25 +13,49 @@ export default function Home() {
       title: "Breathe Puerto banus",
       description: "Le restaurant breathe est un des plus hype",
       header: (
-        <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <Image
+          width={100}
+          height={100}
+          alt="Text"
+          src={
+            "https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          }
+        />
       ),
       icon: <X />,
+      className: undefined,
     },
     {
       title: "Smoke House",
       description: "Le restaurant breathe est un des plus hype",
       header: (
-        <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <Image
+          width={100}
+          height={100}
+          alt="Text"
+          src={
+            "https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          }
+        />
       ),
       icon: <X />,
+      className: undefined,
     },
     {
       title: "Blend",
       description: "Le restaurant breathe est un des plus hype",
       header: (
-        <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <Image
+          width={100}
+          height={100}
+          alt="Text"
+          src={
+            "https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          }
+        />
       ),
       icon: <X />,
+      className: undefined,
     },
   ];
 
@@ -51,6 +75,7 @@ export default function Home() {
             key={index}
             title={item.title}
             description={item.description}
+            action={() => {}}
             header={item.header}
             className={cn("[&>p:text-lg]", item.className)}
             icon={item.icon}

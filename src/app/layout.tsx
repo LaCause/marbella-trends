@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/organisms/Navigation/Navigation";
-import { FlipWords } from "./components/molecules/FlipWords/FlipWords";
-import { Sparkles } from "./components/ui/Sparkles/Sparkles";
-import { Tabs } from "./components/molecules/Tab/Tab";
-import { NavBar } from "./components/ui/NavBar/NavBar";
-import { HeroHighlight } from "./components/ui/HeroHighlight/HeroHighlight";
 
 export const metadata: Metadata = {
   title: "Create Next App",

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Tabs } from "../../molecules/Tab/Tab";
 import { NavBar } from "../../ui/NavBar/NavBar";
 
 export default function Navigation() {
