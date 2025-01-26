@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator zod {
+  provider = "prisma-zod-generator"
+  output   = "./zod-schemas"
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  firstname String
+  lastname String
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  name String
+  locations Location[] @relation("CategoryToLocation")
+}
+
+model Location {
+  id            Int      @id @default(autoincrement())
+  company       String
+  description   String   @default("description")
+  lat           Float
+  long          Float
+  street        String
+  line          String?
+  state         String
+  categories    Category[]  @relation("CategoryToLocation")
+  trends_value  Int      @default(0)
+  image         String
+}

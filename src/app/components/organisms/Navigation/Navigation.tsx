@@ -1,28 +1,68 @@
-import Link from "next/link";
-import { NavBar } from "../../ui/NavBar/NavBar";
+"use client";
 
-export default function Navigation() {
-  const navigation = [
-    { name: "Home", link: "#nightclubs" },
-    { name: "About us", link: "#holy-beach" },
-    { name: "Où sortir ?", link: "/blog" },
-    { name: "Contact", link: "#yacht-club" },
-  ];
+import { useTheme } from "@/app/context/themeContext/ThemeContext";
+import { useAuth } from "@/app/context/AuthContext/AuthContext";
+import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+
+import Link from "next/link";
+
+const HAS_ADMIN_CONNECTED = true;
+
+const navigation = [
+  {
+    title: "Accueil",
+    href: "/",
+  },
+  {
+    title: "À propos",
+    href: "/about",
+  },
+  {
+    title: "Catégories",
+    href: "/docs",
+  },
+  {
+    title: "Contact",
+    href: "/contact",
+  },
+  {
+    title: "Dashboard",
+    href: "/dashboard",
+    requireAccess: true,
+  },
+];
+
+export const Navigation = () => {
+  const { theme, setTheme } = useTheme();
+  const { username, login } = useAuth();
+
   return (
-    <>
-      <NavBar navItems={navigation} />
-      <nav
-        id="navigation"
-        className="absolute top-0 left-0 z-10 border-b-[1px] border-blue-400   w-full"
-      >
-        <ul className="flex py-3 px">
-          {navigation.map((item, index) => (
-            <li key={index}>
-              <Link href={item.link}>{item.name}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </>
+    <NavigationMenu className="mx-auto">
+      CKDSN,CLDKS,
+      <Button>Login</Button>
+      <NavigationMenuList>
+        {navigation.map((item) => (
+          <NavigationMenuItem key={item.href}>
+            <Link
+              href={item.href}
+              legacyBehavior
+              passHref
+              className="yaniscdslkc,sl"
+            >
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                {item.title}
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        ))}
+      </NavigationMenuList>
+    </NavigationMenu>
   );
-}
+};
